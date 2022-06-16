@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&display=swap");
+@font-face {
+  font-family: "flyover-webfont";
+  src: url("./assets/flyover/flyover-webfont.ttf") format("ttf"), url("./assets/flyover/flyover-webfont.woff") format("woff");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "flyover";
+  color: #fdc675;
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-size: 60px;
+  line-height: 55px;
+  text-align: left;
+}
+
+h2 {
+  font-size: 30px;
+  line-height: 25px;
+  text-align: left;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background: #262626;
+  color: #ead6b1;
+}
+
+.page-container {
+  width: 100%;
+  position: relative;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  height: 100%;
+  padding-bottom: 4rem;
+  padding-left: 89.25px;
+  margin-right: 96.167px;
+  padding-right: 20px;
+}
+@media only screen and (max-width: 1200px) {
+  .content-wrap {
+    margin-right: unset;
+  }
+}
+
+.roses {
+  padding-right: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.roses img {
+  height: 126vh;
+}
+
+img {
+  width: 100%;
+}
+
+.section {
+  max-width: 768px;
+  margin: 0 auto;
+}
+.section p {
+  margin-bottom: 2rem;
+}
+.section p a {
+  text-decoration: underline;
+}
+
+.character {
+  padding-top: 4rem;
+}
+
+.container {
+  position: relative;
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+  gap: 1rem;
+}
+.skills h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.skills .code,
+.skills .design,
+.skills .trait {
+  text-align: center;
+  max-width: 500px;
+  margin-bottom: 1rem;
+}
+.skills .code span {
+  background: #2f2d2a;
+  margin: 2px;
+  display: inline-block;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.skills .design span {
+  background: #2f2d2a;
+  margin: 2px;
+  display: inline-block;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.skills .trait span {
+  background: #2f2d2a;
+  margin: 2px;
+  display: inline-block;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+
+.page-break {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 3rem 3rem 0;
+}
+.page-break img {
+  height: 35px;
+}
+
+.blog-section {
+  margin-bottom: 5rem;
+}
+.blog-section h2 {
+  margin-top: 2rem;
+}
+
+.footer {
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  height: 4rem;
+  background: #202020;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
