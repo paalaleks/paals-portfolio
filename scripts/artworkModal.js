@@ -7,6 +7,6 @@ export default function artwork() {
     intro.classList.toggle("toggleIntro");
   });
   exitArtwork.addEventListener("click", () => {
-    intro.classList.toggle("toggleIntro");
+    intro.style.display = "block";
   });
 }
