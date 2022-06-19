@@ -1,3 +1,5 @@
+// @use "./home.scss";
+// @use "./blog.scss";
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&display=swap");
 @font-face {
   font-family: "flyover-webfont";
@@ -24,49 +26,22 @@ h6 {
   font-family: "flyover";
   color: #fdc675;
   margin-bottom: 0.5rem;
+  font-weight: 200;
 }
 h1 {
   font-size: 60px;
   line-height: 55px;
-  text-align: left;
 }
 h2 {
   font-size: 30px;
   line-height: 25px;
-  text-align: left;
 }
 
 body {
   font-family: "Plus Jakarta Sans", sans-serif;
   background: #262626;
+
   color: #ead6b1;
-}
-.page-container {
-  width: 100%;
-  position: relative;
-  min-height: 100vh;
-}
-.content-wrap {
-  height: 100%;
-
-  padding-bottom: 4rem;
-
-  padding-left: 89.25px;
-  margin-right: 96.167px;
-  padding-right: 20px;
-
-  @media only screen and (max-width: 1200px) {
-    margin-right: unset;
-  }
-}
-.roses {
-  padding-right: 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  img {
-    height: 126vh;
-  }
 }
 
 img {
@@ -78,21 +53,77 @@ img {
   margin: 0 auto;
 
   p {
-    line-height: 1.5rem;
+    line-height: 1.3rem;
     margin-bottom: 2rem;
+    text-align: center;
     a {
       text-decoration: underline;
+
+      &:hover {
+        color: darken(#ead6b1, 10%);
+      }
     }
   }
 }
-.intro {
-  padding-top: 4rem;
-}
-.toggle {
-  display: none;
-}
+
 .container {
   position: relative;
+}
+
+.roses {
+  display: block;
+  padding-right: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  img {
+    height: 126vh;
+    @media only screen and (max-width: 768px) {
+      height: 100vh;
+    }
+  }
+
+  @media only screen and (max-width: 576px) {
+    display: none;
+  }
+}
+
+// homepage
+
+.logo {
+  @media only screen and (max-width: 576px) {
+    display: none;
+  }
+}
+
+.logo_2 {
+  width: 250px;
+  margin: auto;
+  display: none;
+  @media only screen and (max-width: 576px) {
+    display: block;
+  }
+}
+
+.blog-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    margin: 3rem 0 4rem 0;
+    width: 40px;
+  }
+}
+
+.toggleIntro {
+  display: none;
+}
+
+.intro-container {
+  padding-top: 2.5rem;
+  @media only screen and (max-width: 576px) {
+    padding-top: 1rem;
+  }
 }
 
 .skills {
@@ -115,7 +146,7 @@ img {
 
   .code {
     span {
-      background: #2f2d2a;
+      background: #373737;
       margin: 2px;
       display: inline-block;
       border-radius: 8px;
@@ -124,7 +155,7 @@ img {
   }
   .design {
     span {
-      background: #2f2d2a;
+      background: #373737;
       margin: 2px;
       display: inline-block;
       border-radius: 8px;
@@ -133,7 +164,7 @@ img {
   }
   .trait {
     span {
-      background: #2f2d2a;
+      background: #373737;
       margin: 2px;
       display: inline-block;
       border-radius: 8px;
@@ -142,7 +173,10 @@ img {
   }
 }
 
+// artwork
+
 .artwork {
+  overflow: auto;
   display: none;
   background: #262626;
   position: fixed;
@@ -153,30 +187,12 @@ img {
   width: 100%;
   height: 100%;
 
-  .topbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 1rem 0;
-
-    h2 {
-      margin: auto;
-    }
-    .fa-xmark {
-      margin-right: 1rem;
-      padding: 0.5rem;
-      font-size: 22px;
-      cursor: pointer;
-    }
-  }
-
   .artwork-inner {
     max-width: 768px;
     margin: auto;
     height: 100%;
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
   }
 
   .portrait {
@@ -190,36 +206,126 @@ img {
   }
 }
 
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+
+  h2 {
+    margin: auto;
+  }
+  .fa-xmark {
+    margin-right: 1rem;
+    padding: 0.5rem;
+    font-size: 22px;
+    cursor: pointer;
+
+    &:hover {
+      color: darken(#ead6b1, 10%);
+    }
+  }
+}
+
 .artwork:target {
   display: block;
 }
 
-.blog-section {
-  h1 {
-    margin-top: 2rem;
-  }
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(384px, 1fr));
-  gap: 1rem;
+// Blog
 
-  .blog {
-    h2 {
-      margin-top: 1rem;
-    }
-    width: 384px;
+.article {
+  &:hover > p {
+    color: darken(#ead6b1, 10%);
+  }
+
+  cursor: pointer;
+}
+
+.blog-section {
+  .blog-img {
+    margin-bottom: 1rem;
   }
 }
 
-.footer {
-  left: 0;
-  bottom: 0;
-  position: absolute;
+.article-img {
+  height: 100%;
   width: 100%;
-  height: 4rem;
+  background-position: center;
+}
+
+.blog-excerpt {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(251px, 1fr));
+  gap: 1rem;
+
+  .article {
+    h2 {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+    max-width: 518px;
+  }
+}
+
+.toggleBlog {
+  display: none;
+}
+
+.page-container {
+  min-height: 100%;
+  position: relative;
+}
+
+.content-wrap {
+  padding-bottom: 6rem;
+  padding-left: 89.25px;
+  margin-right: 96.167px;
+  padding-right: 20px;
+
+  @media only screen and (max-width: 1200px) {
+    margin-right: unset;
+  }
+  @media only screen and (max-width: 768px) {
+    padding-left: 64px;
+    padding-right: 20px;
+  }
+  @media only screen and (max-width: 576px) {
+    padding: 0 1rem;
+  }
+}
+
+footer {
+  padding-left: 89.25px;
+  padding-right: 89.25px;
+  white-space: nowrap;
+  width: 100%;
+  height: 6rem;
   background: #202020;
-  z-index: -1;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   font-size: 14px;
+  position: absolute;
+  z-index: -1;
+
+  @media only screen and (max-width: 576px) {
+    padding-left: unset;
+    padding-right: unset;
+  }
+
+  a {
+    i {
+      margin-right: 4px;
+    }
+    margin: 0 0.5rem;
+    padding: 0.5rem;
+
+    &:hover {
+      color: darken(#ead6b1, 10%);
+    }
+  }
+  span {
+    margin-left: 1rem;
+  }
 }

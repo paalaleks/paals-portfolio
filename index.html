@@ -14,14 +14,17 @@
   </head>
   <body>
     <div class="page-container">
-      <div class="content-wrap">
+      <main class="content-wrap">
         <section class="section intro">
           <div class="roses">
             <img src="./assets/roses.svg" alt="" />
           </div>
-          <div class="container">
+          <div class="intro-container">
             <div class="logo">
               <img src="./assets/paal.svg" alt="" />
+            </div>
+            <div class="logo_2">
+              <img src="./assets/paal_mob.svg" alt="" />
             </div>
             <p>
               Farmer boy and railroadworker from Telemark looking for a job in
@@ -35,8 +38,7 @@
                 >email me</a
               >
               or message me through
-              <a href="https://www.linkedin.com/in/fullstakk/">LinkedIn</a>. You
-              can also call me on <a href="tel:+4748347323"> +47 483 47 323</a>.
+              <a href="https://www.linkedin.com/in/fullstakk/">LinkedIn</a>.
               Looking forward to hear from you! Here's my tech stack so far:
             </p>
 
@@ -82,9 +84,15 @@
         <section class="artwork" id="artwork">
           <div class="topbar">
             <h2>Artwork</h2>
-            <a href="#"><i class="fa-solid fa-xmark"></i></a>
+            <a href="#"><i class="fa-solid fa-xmark exit-artwork"></i></a>
           </div>
           <div class="artwork-inner">
+            <div class="landscape-img img">
+              <img
+                src="./assets/artwork/hun kom flyvende inn et vindu.png"
+                alt="She came flying into my life"
+              />
+            </div>
             <div class="landscape-img img">
               <img
                 src="./assets/artwork/Little_Delights_My_Favorite_Tv_Show_Is_On_blue.png"
@@ -92,7 +100,13 @@
               />
             </div>
             <div class="landscape-img img">
-              <img src="./assets/artwork/Prøvelser.jpg" alt="Trials" />
+              <img
+                src="./assets/artwork/detmågåfremmover.png"
+                alt="Little Delights; My Favorite Tv Show Is On"
+              />
+            </div>
+            <div class="landscape-img img">
+              <img src="./assets/artwork/Prøvelser.png" alt="Trials" />
             </div>
             <div class="portrait">
               <div class="portrait-img img">
@@ -100,7 +114,7 @@
               </div>
               <div class="portrait-img img">
                 <img
-                  src="./assets/artwork/airbaloon.png"
+                  src="./assets/artwork/gps navigated airbaloon mail.png"
                   alt="Air baloon navigated GPS baloon mail"
                 />
               </div>
@@ -117,11 +131,27 @@
             <div class="bottom-bar"></div>
           </div>
         </section>
-        <section class="blog-section section">
-          <h1>Blog</h1>
-        </section>
-      </div>
-      <footer class="footer"></footer>
+        <div class="blog-header section">
+          <img class="page-break" src="/assets/page-break.svg" alt="" />
+        </div>
+        <section class="blog-excerpt section"></section>
+        <section class="blog-section section"></section>
+      </main>
     </div>
+    <footer>
+      <a href="">Blog</a>
+      <a class="artwork-link" href="#artwork">Artwork</a>
+      <a
+        href="mailto:paalaleks@hotmail.com?subject=Message%20via%20fullstakk.as"
+        ><i class="fa-solid fa-envelope"></i>Email</a
+      >
+      <a href="https://www.linkedin.com/in/fullstakk/"
+        ><i class="fa-brands fa-linkedin"></i>LinkedIn</a
+      >
+      <a href="https://github.com/paalaleks"
+        ><i class="fa-brands fa-github-square"></i>Github</a
+      >
+      <span>© 2022 Fullstakk AS</span>
+    </footer>
   </body>
 </html>

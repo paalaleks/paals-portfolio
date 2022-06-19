@@ -1,27 +1,32 @@
 import { baseUrl } from "./baseUrl.js";
+import blogModal from "../blogModal.js";
 
-const blog = document.querySelector(".blog-section");
+const blog = document.querySelector(".blog-excerpt");
+const footer = document.querySelector(".page-container");
 
 async function getArticles() {
-  const res = await fetch(baseUrl + "api/articles?populate=img");
+  const res = await fetch(baseUrl + "/" + "api/articles?populate=image");
   const json = await res.json();
   const data = json.data;
 
   data.forEach((element) => {
-    console.log(element.attributes.img.data[0].attributes.url);
     blog.innerHTML += `
-      <div class="page-break"><img src="${baseUrl}${element.attributes.img.data[0].attributes.url}" alt="" /></div>
-      <a class="blog" href="">
-        <div>
-          <img src="${baseUrl}${element.attributes.img.data[1].attributes.url}" alt="" />    
+      <div class="article" data-id="${element.id}">
+        <div
+          style="background-image: url(${element.attributes.image.data[0].attributes.url}); 
+          background-position: center; background-repeat: no-repeat; width: 100%; min-height: 250px;">
         </div>
         <h2>${element.attributes.title}</h2>
         <p>
-        ${element.attributes.summary}
+        ${element.attributes.excerpt}
         </p>
-      </a>     
+      </div>     
     `;
+    blogModal(blog);
+    setFooter();
   });
 }
+
+function setFooter() {}
 
 export default getArticles;
