@@ -1,7 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&display=swap");
 @font-face {
-  font-family: "flyover-webfont";
-  src: url("./assets/flyover/flyover-webfont.ttf") format("ttf"), url("./assets/flyover/flyover-webfont.woff") format("woff");
+  font-family: "flyoverregular";
+  src: url("/assets/flyover/flyover.eot");
+  src: url("/assets/flyover/flyover.eot?#iefix") format("embedded-opentype"), url("/assets/flyover/flyover.woff2") format("woff2"), url("/assets/flyover/flyover.woff") format("woff"), url("/assets/flyover/flyover.ttf") format("truetype"), url("/assets/flyover/flyover.svg#flyoverregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
 }
 * {
   margin: 0;
@@ -20,7 +23,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "flyover";
+  font-family: "flyoverregular";
   color: #fdc675;
   margin-bottom: 0.5rem;
   font-weight: 200;
