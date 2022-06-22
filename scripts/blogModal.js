@@ -10,8 +10,11 @@ function blogModal(e) {
 
   articles.forEach((element) => {
     element.addEventListener("click", async () => {
-      intro.classList.toggle("toggleIntro");
       blogSection.style.display = "block";
+      intro.style.display = "none";
+      blogHeader.style.display = "none";
+      blogExcerpt.style.display = "none";
+
       const res = await fetch(
         baseUrl +
           "/api/articles/" +
@@ -27,15 +30,11 @@ function blogModal(e) {
 }
 
 function createHTML(data) {
-  blogHeader.classList.toggle("toggleBlog");
-  blogExcerpt.classList.toggle("toggleBlog");
-
   blogSection.innerHTML = "";
-
   blogSection.innerHTML += `
-  <div>
+  <div class="blog-container">
     <div class="topbar">
-      <h2>${data.attributes.title}</h2>
+      <h3>${data.attributes.title}</h3>
       <i class="fa-solid fa-xmark exit-article"></i>
     </div>
     <div 
@@ -52,9 +51,9 @@ function createHTML(data) {
 function exitArticle(e) {
   const exit = e.querySelector(".exit-article");
   exit.addEventListener("click", () => {
-    intro.classList.toggle("toggleIntro");
-    blogHeader.classList.toggle("toggleBlog");
-    blogExcerpt.classList.toggle("toggleBlog");
+    intro.style.display = "block";
+    blogHeader.style.display = "flex";
+    blogExcerpt.style.display = "grid";
     blogSection.style.display = "none";
   });
 }

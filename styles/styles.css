@@ -35,12 +35,14 @@ h1 {
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 25px;
   line-height: 27px;
 }
 
-h2 {
-  font-size: 25px;
+h3 {
+  font-size: 18px;
+  margin: auto;
+  text-align: center;
 }
 
 body {
@@ -53,14 +55,24 @@ img {
   width: 100%;
 }
 
+@media only screen and (max-width: 340px) {
+  p,
+span {
+    font-size: 14px;
+  }
+}
+
 .section {
   max-width: 768px;
   margin: 0 auto;
 }
-.section p a {
+.section p a,
+.section p .artwork-link {
   text-decoration: underline;
+  cursor: pointer;
 }
-.section p a:hover {
+.section p a:hover,
+.section p .artwork-link:hover {
   color: #dfc189;
 }
 
@@ -75,32 +87,43 @@ img {
 }
 
 .logo_2 {
+  position: relative;
   width: 100%;
   margin: auto;
-  padding: 0 1rem 0 0.5rem;
+  padding: 0 1rem;
   display: none;
+  z-index: 2;
 }
 @media only screen and (max-width: 700px) {
   .logo_2 {
     display: block;
   }
 }
+@media only screen and (max-width: 350px) {
+  .logo_2 {
+    padding: 0 6px;
+  }
+}
 
 .blog-header {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
-  height: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 5rem auto;
+}
+@media only screen and (max-width: 576px) {
+  .blog-header {
+    margin: 4rem auto;
+    width: 24px;
+  }
 }
 .blog-header img {
-  margin: 3rem 0 4rem 0;
-  width: 40px;
+  width: 33px;
 }
-
-.toggleIntro {
-  display: none;
+@media only screen and (max-width: 576px) {
+  .blog-header img {
+    width: 24px;
+  }
 }
 
 .intro-container {
@@ -109,17 +132,27 @@ img {
 @media only screen and (max-width: 576px) {
   .intro-container {
     padding-top: 1rem;
+    padding-left: 2.5rem;
   }
 }
 .intro-container p {
   margin-bottom: 2rem;
   text-align: left;
-  font-size: large;
-  padding-left: 8px;
+  padding-right: 8px;
+}
+@media only screen and (max-width: 350px) {
+  .intro-container p {
+    padding: 0 0 0 8px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .intro-container {
+    padding: 1rem 6px 1rem 28px;
+  }
 }
 
 .skills {
-  padding-left: 0.5rem;
+  padding-left: 2rem;
 }
 .skills h2 {
   margin-bottom: 1rem;
@@ -151,6 +184,11 @@ img {
   display: inline-block;
   text-decoration: underline;
 }
+@media only screen and (max-width: 576px) {
+  .skills {
+    padding-right: 1em;
+  }
+}
 
 .artwork {
   overflow: auto;
@@ -177,15 +215,16 @@ img {
 .artwork .portrait .portrait-img {
   width: 50%;
 }
-.artwork .bottom-bar {
-  margin: 4rem 0;
-}
 
 .topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1rem 0;
+  position: relative;
+  top: 0;
+  width: 100%;
+  background: #262626;
+  height: 4rem;
 }
 .topbar h2 {
   margin: auto;
@@ -199,22 +238,26 @@ img {
 .topbar .fa-xmark:hover {
   color: #dfc189;
 }
-
-.artwork:target {
-  display: block;
-}
-
-.article {
-  cursor: pointer;
-}
-.article:hover > p {
-  color: #dfc189;
+@media only screen and (max-width: 576px) {
+  .topbar .fa-xmark {
+    margin-right: 0;
+  }
 }
 
 .blog-section .blog-img {
   margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
+@media only screen and (max-width: 576px) {
+  .blog-container {
+    background: #262626;
+    z-index: 4;
+    position: relative;
+    padding: 0 1rem 5rem 1rem;
+  }
+}
 .article-img {
   height: 100%;
   width: 100%;
@@ -222,40 +265,62 @@ img {
 }
 
 .blog-excerpt {
+  background: #262626;
+  position: relative;
+  z-index: 2;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(251px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
   gap: 1rem;
 }
+@media only screen and (max-width: 576px) {
+  .blog-excerpt {
+    gap: unset;
+    display: block;
+  }
+}
 .blog-excerpt .article {
-  max-width: 518px;
+  cursor: pointer;
+}
+.blog-excerpt .article:hover > p {
+  color: #dfc189;
 }
 .blog-excerpt .article h2 {
   text-align: center;
   margin-top: 1.5rem;
 }
-
-.toggleBlog {
-  display: none;
+@media only screen and (max-width: 576px) {
+  .blog-excerpt .article {
+    padding: 1rem;
+  }
+}
+.blog-excerpt .article:last-child {
+  padding-bottom: 6rem;
 }
 
 .page-container {
   min-height: 100%;
   position: relative;
-  padding-bottom: 4rem;
 }
 
 .content-wrap {
+  padding-bottom: 8rem;
   height: 100%;
 }
 @media only screen and (max-width: 1200px) {
   .content-wrap {
     padding-left: 57px;
-    margin: 0 1.5rem;
+    margin: 0 1rem;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .content-wrap {
+    padding-left: 57px;
+    margin: 0 0.5rem;
   }
 }
 @media only screen and (max-width: 576px) {
   .content-wrap {
-    padding: 0 0.5rem;
+    padding: unset;
     margin: unset;
   }
 }
@@ -265,26 +330,31 @@ img {
   background-image: url("../assets/roses.svg");
   background-size: contain;
   background-repeat: repeat-y;
-  height: 100%;
+  height: calc(100% + 8rem);
   width: 57px;
-  position: fixed;
+  position: absolute;
   left: 0;
-  top: 0;
   bottom: 0;
   z-index: 1;
 }
 @media only screen and (max-width: 576px) {
   .roses {
-    display: none;
+    width: 32px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .roses {
+    width: 25px;
   }
 }
 
 footer {
+  padding: 2rem 0;
   padding-left: 89.25px;
   padding-right: 89.25px;
   white-space: nowrap;
   width: 100%;
-  height: 6rem;
+  height: 8rem;
   background: #202020;
   display: flex;
   flex-wrap: wrap;
@@ -296,8 +366,7 @@ footer {
 }
 @media only screen and (max-width: 576px) {
   footer {
-    padding-left: unset;
-    padding-right: unset;
+    padding: 0.5rem 2rem;
   }
 }
 footer a {
@@ -312,4 +381,5 @@ footer a:hover {
 }
 footer span {
   margin-left: 1rem;
+  padding: 0.5rem;
 }

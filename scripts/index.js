@@ -1,5 +1,8 @@
 import artworkModal from "./artworkModal.js";
 import getArticles from "./api/getArticles.js";
 
-artworkModal();
+const artworkLink = document.querySelector(".artwork-link");
+
+artworkLink.addEventListener("click", artworkModal);
+
 getArticles();
