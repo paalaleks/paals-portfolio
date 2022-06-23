@@ -35,6 +35,7 @@ h1 {
 }
 
 h2 {
+  text-align: center;
   font-size: 25px;
   line-height: 27px;
 }
@@ -55,11 +56,52 @@ img {
   width: 100%;
 }
 
-@media only screen and (max-width: 340px) {
+@media only screen and (max-width: 350px) {
   p,
 span {
     font-size: 14px;
   }
+}
+
+input {
+  padding-left: 4px;
+  line-height: 2.5rem;
+  height: 2.5rem;
+}
+
+textarea,
+input {
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+  background: #202020;
+  color: #ead6b1;
+}
+
+textarea {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  padding-top: 8px;
+  padding-left: 8px;
+  line-height: 1rem;
+  height: 8rem;
+  resize: none;
+}
+
+button {
+  background: #464646;
+  border: unset;
+  height: 2.5rem;
+  border-radius: 4px;
+  color: #ead6b1;
+  cursor: pointer;
+}
+button:hover {
+  background: #535353;
+}
+
+label {
+  color: #ead6b1;
+  margin: 8px 0;
 }
 
 .section {
@@ -67,13 +109,26 @@ span {
   margin: 0 auto;
 }
 .section p a,
-.section p .artwork-link {
+.section p .artwork-link,
+.section p .contact-link,
+.section p label,
+.section p textarea,
+.section p input {
   text-decoration: underline;
   cursor: pointer;
 }
 .section p a:hover,
-.section p .artwork-link:hover {
+.section p .artwork-link:hover,
+.section p .contact-link:hover,
+.section p label:hover,
+.section p textarea:hover,
+.section p input:hover {
   color: #dfc189;
+}
+
+.section-md {
+  margin: auto;
+  max-width: 576px;
 }
 
 .container {
@@ -238,11 +293,6 @@ span {
 .topbar .fa-xmark:hover {
   color: #dfc189;
 }
-@media only screen and (max-width: 576px) {
-  .topbar .fa-xmark {
-    margin-right: 0;
-  }
-}
 
 .blog-section .blog-img {
   margin-bottom: 1rem;
@@ -304,7 +354,7 @@ span {
 
 .content-wrap {
   padding-bottom: 8rem;
-  height: 100%;
+  min-height: 100vh;
 }
 @media only screen and (max-width: 1200px) {
   .content-wrap {
@@ -334,7 +384,6 @@ span {
   width: 57px;
   position: absolute;
   left: 0;
-  bottom: 0;
   z-index: 1;
 }
 @media only screen and (max-width: 576px) {
@@ -346,6 +395,49 @@ span {
   .roses {
     width: 25px;
   }
+}
+
+.contact {
+  display: none;
+}
+.contact .topbar {
+  padding-left: 3rem;
+}
+@media only screen and (max-width: 350px) {
+  .contact .topbar {
+    padding-left: 2rem;
+  }
+}
+
+.contact-inner {
+  padding-top: 2.5rem;
+}
+.contact-inner p {
+  margin-bottom: 2rem;
+}
+.contact-inner form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.contact-inner input {
+  margin-bottom: 0.5rem;
+}
+.contact-inner button {
+  margin-top: 30px;
+}
+@media only screen and (max-width: 576px) {
+  .contact-inner {
+    padding: 0 1rem 0 3rem;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .contact-inner {
+    padding: 0 2rem 0 3rem;
+  }
+}
+.contact-inner .recaptcha {
+  margin: 1rem 0;
 }
 
 footer {

@@ -2,7 +2,6 @@ import { baseUrl } from "./baseUrl.js";
 import blogModal from "../blogModal.js";
 
 const blog = document.querySelector(".blog-excerpt");
-const footer = document.querySelector(".page-container");
 
 async function getArticles() {
   const res = await fetch(baseUrl + "/" + "api/articles?populate=image");
@@ -23,10 +22,7 @@ async function getArticles() {
       </div>     
     `;
     blogModal(blog);
-    setFooter();
   });
 }
-
-function setFooter() {}
 
 export default getArticles;

@@ -31,10 +31,7 @@
               my code. I also want to show you my
               <span class="artwork-link">artwork</span>. To get in touch you can
               either
-              <a
-                href="mailto:paalaleks@hotmail.com?subject=Message%20via%20fullstakk.as"
-                >email me</a
-              >
+              <span class="contact-link">email me</span>
               or message me through
               <a href="https://www.linkedin.com/in/fullstakk/">LinkedIn</a>.
               Looking forward to hear from you! Here's my tech stack so far:
@@ -86,11 +83,36 @@
           </div>
           <div class="artwork-inner"></div>
         </section>
+        <section class="contact">
+          <div class="topbar">
+            <h2>Contact me</h2>
+            <i class="fa-solid fa-xmark exit-contact"></i>
+          </div>
+          <div class="contact-inner section-md">
+            <form name="contact" method="POST" data-netlify="true">
+              <label for="name">Name:</label>
+              <input placeholder="Whats" type="text" name="name" />
+
+              <label for="email">Email:</label>
+              <input placeholder="" type="email" name="email" />
+
+              <label for="subject">Subject:</label>
+              <input placeholder="" type="text" name="subject" />
+
+              <label for="message">Message:</label>
+              <textarea name="message" id="message"></textarea>
+              <button type="submit">Send message</button>
+              <div class="recaptcha">
+                <div data-netlify-recaptcha="true"></div>
+              </div>
+            </form>
+          </div>
+        </section>
         <div class="blog-header section">
           <img class="page-break" src="/assets/page-break.svg" alt="" />
         </div>
         <section class="blog-excerpt section"></section>
-        <section class="blog-section section"></section>
+        <section class="blog-section"></section>
       </main>
     </div>
     <footer>

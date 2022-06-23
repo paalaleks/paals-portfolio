@@ -32,11 +32,12 @@ function blogModal(e) {
 function createHTML(data) {
   blogSection.innerHTML = "";
   blogSection.innerHTML += `
-  <div class="blog-container">
-    <div class="topbar">
-      <h3>${data.attributes.title}</h3>
-      <i class="fa-solid fa-xmark exit-article"></i>
-    </div>
+  <div class="topbar">
+    <h2>${data.attributes.title}</h2>
+    <i class="fa-solid fa-xmark exit-article"></i>
+  </div>
+  <div class="blog-container section">
+
     <div 
       class="blog-img"
       style="background-image: url(${data.attributes.image.data[0].attributes.url}); 

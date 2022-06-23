@@ -36,6 +36,7 @@ h1 {
   line-height: 55px;
 }
 h2 {
+  text-align: center;
   font-size: 25px;
   line-height: 27px;
 }
@@ -48,7 +49,6 @@ h3 {
 body {
   font-family: "Plus Jakarta Sans", sans-serif;
   background: #262626;
-
   color: #ead6b1;
 }
 
@@ -58,9 +58,50 @@ img {
 
 p,
 span {
-  @media only screen and (max-width: 340px) {
+  @media only screen and (max-width: 350px) {
     font-size: 14px;
   }
+}
+
+input {
+  padding-left: 4px;
+  line-height: 2.5rem;
+  height: 2.5rem;
+}
+
+textarea,
+input {
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+  background: #202020;
+  color: #ead6b1;
+}
+
+textarea {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  padding-top: 8px;
+  padding-left: 8px;
+  line-height: 1rem;
+  height: 8rem;
+  resize: none;
+}
+
+button {
+  background: #464646;
+  border: unset;
+  height: 2.5rem;
+  border-radius: 4px;
+  color: #ead6b1;
+  cursor: pointer;
+  &:hover {
+    background: lighten(#464646, 5%);
+  }
+}
+
+label {
+  color: #ead6b1;
+  margin: 8px 0;
 }
 
 .section {
@@ -69,7 +110,11 @@ span {
 
   p {
     a,
-    .artwork-link {
+    .artwork-link,
+    .contact-link,
+    label,
+    textarea,
+    input {
       text-decoration: underline;
       cursor: pointer;
       &:hover {
@@ -77,6 +122,10 @@ span {
       }
     }
   }
+}
+.section-md {
+  margin: auto;
+  max-width: 576px;
 }
 
 .container {
@@ -244,9 +293,9 @@ span {
     &:hover {
       color: darken(#ead6b1, 10%);
     }
-    @media only screen and (max-width: 576px) {
-      margin-right: 0;
-    }
+    // @media only screen and (max-width: 576px) {
+    //   margin-right: 0;
+    // }
   }
 }
 
@@ -314,7 +363,7 @@ span {
 
 .content-wrap {
   padding-bottom: 8rem;
-  height: 100%;
+  min-height: 100vh;
 
   @media only screen and (max-width: 1200px) {
     padding-left: 57px;
@@ -340,8 +389,6 @@ span {
   width: 57px;
   position: absolute;
   left: 0;
-  // top: 0;
-  bottom: 0;
   z-index: 1;
 
   @media only screen and (max-width: 576px) {
@@ -349,6 +396,48 @@ span {
   }
   @media only screen and (max-width: 350px) {
     width: 25px;
+  }
+}
+
+.contact {
+  display: none;
+
+  .topbar {
+    padding-left: 3rem;
+    @media only screen and (max-width: 350px) {
+      padding-left: 2rem;
+    }
+  }
+}
+
+.contact-inner {
+  padding-top: 2.5rem;
+  p {
+    margin-bottom: 2rem;
+  }
+  form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  input {
+    margin-bottom: 0.5rem;
+  }
+
+  button {
+    margin-top: 30px;
+  }
+
+  @media only screen and (max-width: 576px) {
+    padding: 0 1rem 0 3rem;
+  }
+  @media only screen and (max-width: 350px) {
+    padding: 0 2rem 0 3rem;
+  }
+
+  .recaptcha {
+    margin: 1rem 0;
   }
 }
 
