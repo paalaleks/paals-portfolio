@@ -71,6 +71,9 @@ function createHTML(data) {
 
 function exitArticle(e) {
   const exit = e.querySelector(".exit-article");
+  window.addEventListener("popstate", () => {
+    goBack();
+  });
   exit.addEventListener("click", () => {
     history.go(-1);
     intro.style.display = "block";
@@ -78,6 +81,14 @@ function exitArticle(e) {
     blogExcerpt.style.display = "grid";
     blogSection.style.display = "none";
   });
+
+  function goBack() {
+    history.go(-1);
+    intro.style.display = "block";
+    pageBreak.style.display = "flex";
+    blogExcerpt.style.display = "grid";
+    blogSection.style.display = "none";
+  }
 }
 
 export default blogModal;
