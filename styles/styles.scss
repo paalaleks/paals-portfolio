@@ -158,7 +158,7 @@ label {
   }
 }
 
-.blog-header {
+.page-break {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -170,6 +170,8 @@ label {
   }
   img {
     width: 33px;
+    animation: spin 2s linear infinite;
+
     @media only screen and (max-width: 576px) {
       width: 24px;
     }
@@ -314,8 +316,9 @@ label {
   }
 }
 
-@media only screen and (max-width: 576px) {
-  .blog-container {
+.blog-container {
+  padding-top: 1rem;
+  @media only screen and (max-width: 576px) {
     background: #262626;
     z-index: 4;
     position: relative;
@@ -385,33 +388,14 @@ label {
   }
 }
 
-.roses {
-  display: block;
-  background-image: url("../assets/roses.svg");
-  background-size: contain;
-  background-repeat: repeat-y;
-  height: calc(100% + 8rem);
-  width: 57px;
-  position: absolute;
-  left: 0;
-  z-index: 1;
-
-  @media only screen and (max-width: 576px) {
-    width: 32px;
-  }
-  @media only screen and (max-width: 350px) {
-    width: 25px;
-  }
-}
-
 .contact {
   display: none;
+}
 
-  .topbar {
-    padding-left: 3rem;
-    @media only screen and (max-width: 350px) {
-      padding-left: 2rem;
-    }
+.topbar {
+  padding-left: 2rem;
+  @media only screen and (max-width: 350px) {
+    padding-left: 2rem;
   }
 }
 
@@ -443,6 +427,48 @@ label {
 
   .recaptcha {
     margin: 1rem 0;
+  }
+}
+
+.roses {
+  display: block;
+  background-image: url("../assets/roses.svg");
+  background-size: contain;
+  background-repeat: repeat-y;
+  height: calc(100% + 8rem);
+  width: 57px;
+  position: absolute;
+  left: 0;
+  z-index: 1;
+
+  @media only screen and (max-width: 576px) {
+    width: 32px;
+  }
+  @media only screen and (max-width: 350px) {
+    width: 25px;
+  }
+}
+
+// .loader {
+//   border: 16px solid #202020;
+//   border-top: 16px solid #fdc675;
+//   border-radius: 50%;
+//   width: 120px;
+//   height: 120px;
+//   animation: spin 2s linear infinite;
+//   text-align: left;
+//   position: absolute;
+//   top: calc(80vh - (100px / 2));
+//   left: calc(50vw - (140px / 2));
+//   margin-left: 2.5rem;
+// }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 

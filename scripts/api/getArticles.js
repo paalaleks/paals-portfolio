@@ -4,6 +4,10 @@ import blogModal from "../blogModal.js";
 const blog = document.querySelector(".blog-excerpt");
 
 async function getArticles() {
+  const pageBreak = document.querySelector(".page-break img");
+
+  pageBreak.style.animation = "none";
+
   const res = await fetch(baseUrl + "/" + "api/articles?populate=image");
   const json = await res.json();
   const data = json.data;

@@ -2,7 +2,7 @@ import { baseUrl } from "./api/baseUrl.js";
 
 const intro = document.querySelector(".intro");
 const blog = document.querySelector(".blog-excerpt");
-const blogHeader = document.querySelector(".blog-header");
+const pageBreak = document.querySelector(".page-break");
 const roses = document.querySelector(".roses");
 
 const artworkInner = document.querySelector(".artwork-inner");
@@ -15,7 +15,7 @@ async function artworkModal() {
   roses.style.display = "none";
   intro.style.display = "none";
   blog.style.display = "none";
-  blogHeader.style.display = "none";
+  pageBreak.style.display = "none";
 
   const res = await fetch(baseUrl + "/api/artworks" + "?populate=*");
   const json = await res.json();
@@ -42,7 +42,7 @@ exitArtwork.addEventListener("click", () => {
   roses.style.display = "block";
   intro.style.display = "block";
   blog.style.display = "grid";
-  blogHeader.style.display = "flex";
+  pageBreak.style.display = "flex";
 });
 
 export default artworkModal;
