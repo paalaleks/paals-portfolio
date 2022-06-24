@@ -30,23 +30,23 @@ function blogModal(e) {
 }
 
 function createHTML(data) {
-  const getTitle = data.attributes.title;
-  const addHyphons = getTitle.trim().replace(/[^a-z0-9]+/gi, "-");
+  // const getTitle = data.attributes.title;
+  // const addHyphons = getTitle.trim().replace(/[^a-z0-9]+/gi, "-");
 
-  checkHyphen(addHyphons);
+  // checkHyphen(addHyphons);
 
-  function checkHyphen(addHyphons) {
-    if (addHyphons.at(-1) === "-") {
-      return newSlug();
-    } else {
-      history.pushState("", "", `/${addHyphons}`);
-    }
-  }
+  // function checkHyphen(addHyphons) {
+  //   if (addHyphons.at(-1) === "-") {
+  //     return newSlug();
+  //   } else {
+  //     history.pushState("", "", `/${addHyphons}`);
+  //   }
+  // }
 
-  function newSlug() {
-    const noHyphenSlug = addHyphons.slice(0, addHyphons.length - 1);
-    history.pushState("", "", `/${noHyphenSlug}`);
-  }
+  // function newSlug() {
+  //   const noHyphenSlug = addHyphons.slice(0, addHyphons.length - 1);
+  //   history.pushState("", "", `/${noHyphenSlug}`);
+  // }
 
   window.scrollTo({ top: 0, behavior: "smooth" });
 
