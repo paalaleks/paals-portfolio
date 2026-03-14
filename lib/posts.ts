@@ -10,6 +10,8 @@ export interface PostMeta {
   date: string
   description: string
   author: string
+  image: string | null
+  image_alt: string
   tags: string[]
   draft: boolean
 }
@@ -38,6 +40,8 @@ export function getAllPosts(): PostMeta[] {
         date: data.date ?? "",
         description: data.description ?? "",
         author: data.author ?? "",
+        image: data.image ?? null,
+        image_alt: data.image_alt ?? "",
         tags: data.tags ?? [],
         draft: data.draft ?? false,
       } satisfies PostMeta
@@ -68,6 +72,8 @@ export function getPostBySlug(slug: string): Post | null {
     date: data.date ?? "",
     description: data.description ?? "",
     author: data.author ?? "",
+    image: data.image ?? null,
+    image_alt: data.image_alt ?? "",
     tags: data.tags ?? [],
     draft: data.draft ?? false,
     content,

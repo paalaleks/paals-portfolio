@@ -4,8 +4,8 @@ date: "2026-03-13"
 slug: "ai-powered-blog-publishing-with-claude"
 description: "How I ditched CMS platforms and built a blog publishing routine using Claude and the GitHub API — with or without AI."
 author: "Paal Aleksander Kaasa"
-image: ""
-image_alt: ""
+image: "/images/blog/meg.png"
+image_alt: "A gathering of 19th century writers around a table"
 tags:
   - claude
   - nextjs

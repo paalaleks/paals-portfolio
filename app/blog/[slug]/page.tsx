@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ArrowLeft } from "lucide-react"
@@ -47,6 +48,19 @@ export default async function PostPage({ params }: Props) {
           <ArrowLeft className="size-4" />
           All posts
         </Link>
+
+        {post.image && (
+          <div className="mb-8 overflow-hidden rounded-xl border border-border/50">
+            <Image
+              src={post.image}
+              alt={post.image_alt || post.title}
+              width={1200}
+              height={630}
+              className="h-auto w-full object-cover"
+              priority
+            />
+          </div>
+        )}
 
         <header className="mb-12">
           <time className="text-sm text-muted-foreground">

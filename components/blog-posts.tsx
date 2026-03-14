@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { getAllPosts } from "@/lib/posts"
@@ -24,8 +25,19 @@ export function BlogPosts() {
               href={`/blog/${post.slug}`}
               className="group rounded-xl border border-border/50 bg-card/50 p-6 transition-all hover:border-border hover:bg-card"
             >
-              <div className="flex items-start justify-between">
-                <div>
+              <div className="flex items-start gap-5">
+                {post.image && (
+                  <div className="hidden shrink-0 overflow-hidden rounded-lg sm:block">
+                    <Image
+                      src={post.image}
+                      alt={post.image_alt || post.title}
+                      width={160}
+                      height={90}
+                      className="size-full object-cover"
+                    />
+                  </div>
+                )}
+                <div className="min-w-0 flex-1">
                   <time className="text-sm text-muted-foreground">
                     {new Date(post.date).toLocaleDateString("en-US", {
                       year: "numeric",
