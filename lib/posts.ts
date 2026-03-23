@@ -52,6 +52,11 @@ export function getAllPosts(): PostMeta[] {
   return posts
 }
 
+export function getReadingTime(content: string): number {
+  const words = content.trim().split(/\s+/).length
+  return Math.max(1, Math.round(words / 230))
+}
+
 export function getPostBySlug(slug: string): Post | null {
   const filePath = path.join(postsDirectory, `${slug}.md`)
 

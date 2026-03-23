@@ -1,6 +1,16 @@
+import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
+import { ArrowRight } from "lucide-react"
+import { PageNav } from "@/components/page-nav"
 import { getAllPosts } from "@/lib/posts"
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 
 export const metadata = {
   title: "Blog | Paal Aleksander",
@@ -11,15 +21,10 @@ export default function BlogPage() {
   const posts = getAllPosts()
 
   return (
-    <section className="px-8 py-24 md:px-16 lg:px-24">
+    <>
+    <PageNav backHref="/" backLabel="Home" />
+    <section className="px-8 pt-20 pb-24 md:px-16 lg:px-24">
       <div className="max-w-3xl">
-        <Link
-          href="/"
-          className="mb-8 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <ArrowLeft className="size-4" />
-          Home
-        </Link>
 
         <p className="mb-2 text-sm font-medium tracking-[0.3em] uppercase text-muted-foreground">
           Writing
@@ -36,36 +41,63 @@ export default function BlogPage() {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="group rounded-xl border border-border/50 bg-card/50 p-6 transition-all hover:border-border hover:bg-card"
+                className="group"
               >
-                <div className="mb-2 flex items-center gap-3">
-                  <time className="text-sm text-muted-foreground">
-                    {new Date(post.date).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
-                  </time>
-                </div>
-                <h2 className="mb-2 text-lg font-semibold">{post.title}</h2>
-                <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
-                  {post.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {post.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium text-secondary-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+                <Card>
+                  <div className="flex flex-col sm:flex-row">
+                    {post.image && (
+                      <div className="relative shrink-0 overflow-hidden rounded-t-lg sm:w-48 sm:rounded-l-lg sm:rounded-tr-none">
+                        <Image
+                          src={post.image}
+                          alt={post.image_alt || post.title}
+                          width={384}
+                          height={216}
+                          className="h-40 w-full object-cover sm:h-full"
+                        />
+                      </div>
+                    )}
+                    <div className="flex-1 p-6">
+                      <CardHeader className="p-0">
+                        <CardDescription>
+                          <time>
+                            {new Date(post.date).toLocaleDateString("en-US", {
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric",
+                            })}
+                          </time>
+                        </CardDescription>
+                        <CardTitle>
+                          {post.title}
+                        </CardTitle>
+                        <CardAction>
+                          <ArrowRight className="size-4 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
+                        </CardAction>
+                      </CardHeader>
+                      <CardContent className="mt-2 flex flex-col gap-4 p-0">
+                        <p className="text-sm leading-relaxed text-muted-foreground">
+                          {post.description}
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {post.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium text-secondary-foreground"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </div>
+                  </div>
+                </Card>
               </Link>
             ))}
           </div>
         )}
       </div>
     </section>
+    </>
   )
 }

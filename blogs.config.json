@@ -1,0 +1,13 @@
+{
+  "blogs": {
+    "personal": {
+      "label": "Portfolio Blog",
+      "github_owner": "paalaleks",
+      "github_repo": "paals-portfolio",
+      "github_branch": "master",
+      "blog_dir": "content/blog",
+      "image_dir": "public/images/blog",
+      "author": "Paal Aleksander Kaasa"
+    }
+  }
+}

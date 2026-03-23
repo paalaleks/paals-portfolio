@@ -2,6 +2,14 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { getAllPosts } from "@/lib/posts"
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 
 export function BlogPosts() {
   const posts = getAllPosts()
@@ -23,47 +31,56 @@ export function BlogPosts() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="group rounded-xl border border-border/50 bg-card/50 p-6 transition-all hover:border-border hover:bg-card"
+              className="group"
             >
-              <div className="flex items-start gap-5">
-                {post.image && (
-                  <div className="hidden shrink-0 overflow-hidden rounded-lg sm:block">
-                    <Image
-                      src={post.image}
-                      alt={post.image_alt || post.title}
-                      width={160}
-                      height={90}
-                      className="size-full object-cover"
-                    />
-                  </div>
-                )}
-                <div className="min-w-0 flex-1">
-                  <time className="text-sm text-muted-foreground">
-                    {new Date(post.date).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
-                  </time>
-                  <h3 className="mt-1 mb-2 text-lg font-semibold">
-                    {post.title}
-                  </h3>
-                  <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
-                    {post.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {post.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium text-secondary-foreground"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+              <Card>
+                <div className="flex items-start gap-5 p-6">
+                  {post.image && (
+                    <div className="relative hidden aspect-video w-40 shrink-0 overflow-hidden rounded-lg sm:block">
+                      <Image
+                        src={post.image}
+                        alt={post.image_alt || post.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  )}
+                  <div className="min-w-0 flex-1">
+                    <CardHeader className="p-0">
+                      <CardDescription>
+                        <time>
+                          {new Date(post.date).toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                          })}
+                        </time>
+                      </CardDescription>
+                      <CardTitle>
+                        {post.title}
+                      </CardTitle>
+                      <CardAction>
+                        <ArrowRight className="size-4 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
+                      </CardAction>
+                    </CardHeader>
+                    <CardContent className="mt-2 flex flex-col gap-4 p-0">
+                      <p className="text-sm leading-relaxed text-muted-foreground">
+                        {post.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {post.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium text-secondary-foreground"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </CardContent>
                   </div>
                 </div>
-                <ArrowRight className="mt-1 size-4 shrink-0 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
-              </div>
+              </Card>
             </Link>
           ))}
         </div>

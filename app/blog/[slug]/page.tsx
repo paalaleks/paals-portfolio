@@ -1,10 +1,9 @@
 import Image from "next/image"
-import Link from "next/link"
 import { notFound } from "next/navigation"
-import { ArrowLeft } from "lucide-react"
+import { PageNav } from "@/components/page-nav"
 import { remark } from "remark"
 import remarkHtml from "remark-html"
-import { getAllPosts, getPostBySlug } from "@/lib/posts"
+import { getAllPosts, getPostBySlug, getReadingTime } from "@/lib/posts"
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -37,46 +36,48 @@ export default async function PostPage({ params }: Props) {
     .use(remarkHtml, { sanitize: false })
     .process(post.content)
   const contentHtml = processed.toString()
+  const readingTime = getReadingTime(post.content)
 
   return (
-    <section className="px-8 py-24 md:px-16 lg:px-24">
-      <div className="max-w-3xl">
-        <Link
-          href="/blog"
-          className="mb-8 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <ArrowLeft className="size-4" />
-          All posts
-        </Link>
+    <>
+    <PageNav backHref="/blog" backLabel="All posts" />
+    <section className="px-6 pt-20 pb-20 md:px-16 lg:px-24">
+      <div className="mx-auto max-w-2xl">
 
         {post.image && (
-          <div className="mb-8 overflow-hidden rounded-xl border border-border/50">
+          <div className="relative mb-10 aspect-video overflow-hidden rounded-xl border border-border/50">
             <Image
               src={post.image}
               alt={post.image_alt || post.title}
-              width={1200}
-              height={630}
-              className="h-auto w-full object-cover"
+              fill
+              className="object-cover"
               priority
             />
           </div>
         )}
 
-        <header className="mb-12">
-          <time className="text-sm text-muted-foreground">
-            {new Date(post.date).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
-          </time>
-          <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
+        <header className="mb-10">
+          <div className="mb-4 flex items-center gap-3 text-sm text-muted-foreground">
+            <time>
+              {new Date(post.date).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </time>
+            <span aria-hidden="true">&middot;</span>
+            <span>{readingTime} min read</span>
+          </div>
+
+          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-[2.5rem] lg:leading-[1.15]">
             {post.title}
           </h1>
-          <p className="mt-2 text-sm text-muted-foreground">
+
+          <p className="mt-3 text-base text-muted-foreground">
             By {post.author}
           </p>
-          <div className="mt-4 flex flex-wrap gap-2">
+
+          <div className="mt-5 flex flex-wrap gap-2">
             {post.tags.map((tag) => (
               <span
                 key={tag}
@@ -88,11 +89,14 @@ export default async function PostPage({ params }: Props) {
           </div>
         </header>
 
+        <hr className="mb-12 border-border" />
+
         <article
-          className="prose prose-lg dark:prose-invert max-w-none"
+          className="blog-article prose prose-lg dark:prose-invert max-w-none"
           dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
       </div>
     </section>
+    </>
   )
 }

@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { useCallback, useEffect, useState } from "react"
+import { createPortal } from "react-dom"
 import { X } from "lucide-react"
 
 const artworks = [
@@ -110,9 +111,9 @@ export function Artwork() {
       </div>
 
       {/* Lightbox Modal */}
-      {selected !== null && (
+      {selected !== null && createPortal(
         <div
-          className="lightbox-backdrop fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          className="lightbox-backdrop fixed inset-0 z-[60] flex items-center justify-center bg-black/80 backdrop-blur-sm"
           onClick={close}
         >
           <button
@@ -139,7 +140,8 @@ export function Artwork() {
               </p>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   )
